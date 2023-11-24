@@ -7,6 +7,8 @@ int _printf(const char *format, ...) {
     va_list args;
     int printed_chars = 0;
 
+    int *allocated_memory = (int *)malloc(10 * sizeof(int));
+
     va_start(args, format);
 
     while (*format != '\0') {
@@ -59,7 +61,7 @@ int _printf(const char *format, ...) {
                 write(1, "%r", 1);
                 printed_chars++;
             } else if (*format == 'r') {
-                write(1, "%r", 7);
+                write(1, "\%r", 7);
                 printed_chars += 7;
             } else if (*format == 'n') {
                 int *n = va_arg(args, int*);
@@ -74,5 +76,8 @@ int _printf(const char *format, ...) {
     }
 
     va_end(args);
+
+    free(allocated_memory);
+
     return printed_chars;
 }
