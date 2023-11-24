@@ -3,6 +3,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * _printf - produce output according to a format
+ * 
+ * @format: string of character to be printed
+ * 
+*/
 int _printf(const char *format, ...) {
     va_list args;
     int printed_chars = 0;
