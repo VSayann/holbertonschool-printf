@@ -61,7 +61,7 @@ int _printf(const char *format, ...) {
                 write(1, "%r", 1);
                 printed_chars++;
             } else if (*format == 'r') {
-                write(1, "\%r", 7);
+                write(1, "%r", 7);
                 printed_chars += 7;
             } else if (*format == 'n') {
                 int *n = va_arg(args, int*);
